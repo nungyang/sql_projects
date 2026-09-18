@@ -16,6 +16,7 @@ Part 1: Cleaning and standardising YEAR and gdp_per_capita columns
 
 /* I imported year and gpd as text so first making sure they both get classified as numbers
 First checking making sure any empty rows are classified as NULL instead of empty string otherwise conversion won't work */
+USE braintree;
 
 -- YEAR column
 SELECT *
@@ -128,6 +129,7 @@ LEFT JOIN map
 /* Adding maps table for continent name */
 LEFT JOIN continents
 	ON continents.continent_code = map.continent_code;
+
     
 /*****
 Part 4: Cleaning table before ranking
@@ -164,16 +166,20 @@ No need to delete them as when we do the ranking, they will form their own categ
 
 
 /*****
-Part 5: Pulling ranks 10-12 for each continent
+Part 5: Pulling ranks 10-12 for each continent and making sure it is in correct format
 *****/
 
 WITH ranking AS (
 	SELECT *,
     ROW_NUMBER () OVER (PARTITION BY continent_name ORDER BY pct_growth DESC) AS ranking
 FROM gdp_growth)
-SELECT *
+SELECT 
+    ranking,
+    continent_name,
+    country_code,
+    country_name,
+    CONCAT(ROUND(pct_growth * 100, 2), '%') AS growth_percent
 FROM ranking
 WHERE continent_name IS NOT NULL
 AND ranking IN (10, 11, 12);
 
-    
