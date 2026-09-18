@@ -155,7 +155,9 @@ WHERE country_name = 'Kosovo';
 SELECT *
 FROM gdp_growth;
 
-/* Also adding it into map table in case it comes up in another analysis */
+/* Also adding it into map table in case it comes up in another analysis
+I would normally add it in an early script, maybe after loading files to make sure it is incorporated in all analyses
+But for the purposes of this challenges and showing how I noticed it was missing, I just add it in here.*/
 INSERT INTO map (country_code, continent_code)
 VALUES ('KSV', 'EU');
 
