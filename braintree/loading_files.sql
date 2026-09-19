@@ -18,7 +18,7 @@ CREATE TABLE map (
     continent_code TEXT
 );
 
-LOAD DATA LOCAL INFILE '/Users/nungyang/GitHub/sql_projects/braintree/continent_map.csv'
+LOAD DATA LOCAL INFILE '/Users/nungyang/GitHub/sql_projects/braintree/data/continent_map.csv'
 INTO TABLE map
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -31,7 +31,7 @@ CREATE TABLE continents (
     continent_name TEXT
 );
 
-LOAD DATA LOCAL INFILE '/Users/nungyang/GitHub/sql_projects/braintree/continents.csv'
+LOAD DATA LOCAL INFILE '/Users/nungyang/GitHub/sql_projects/braintree/data/continents.csv'
 INTO table continents
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -44,7 +44,7 @@ CREATE TABLE countries (
     country_name TEXT
 );
 
-LOAD DATA LOCAL INFILE '/Users/nungyang/GitHub/sql_projects/braintree/countries.csv'
+LOAD DATA LOCAL INFILE '/Users/nungyang/GitHub/sql_projects/braintree/data/countries.csv'
 INTO table countries
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -58,7 +58,7 @@ CREATE TABLE per_capita (
     gdp_per_capita TEXT
 );
 
-LOAD DATA LOCAL INFILE '/Users/nungyang/GitHub/sql_projects/braintree/per_capita.csv'
+LOAD DATA LOCAL INFILE '/Users/nungyang/GitHub/sql_projects/braintree/data/per_capita.csv'
 INTO table per_capita
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
